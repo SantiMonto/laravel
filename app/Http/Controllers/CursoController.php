@@ -9,18 +9,21 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
-        $cursos = Curso::orderBy('id','desc')->paginate();
+        $cursos = Curso::orderBy('id', 'desc')->paginate();
 
-        return view('cursos.index',compact('cursos'));
+        return view('cursos.index', compact('cursos'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('cursos.create');
     }
 
-    public function store(StoreCurso $request){
+    public function store(StoreCurso $request)
+    {
 
         // $curso = new Curso();
         // $curso->name = $request->name;
@@ -33,16 +36,19 @@ class CursoController extends Controller
         return redirect()->route('cursos.show', $curso->id);
     }
 
-    public function edit(Curso $curso){
-       
-        return view('cursos.edit',compact('curso'));
+    public function edit(Curso $curso)
+    {
+
+        return view('cursos.edit', compact('curso'));
     }
 
-    public function show(Curso $curso,$categoria=null){
-        return view('cursos.show',compact('curso'),compact('categoria'));
+    public function show(Curso $curso, $categoria = null)
+    {
+        return view('cursos.show', compact('curso'), compact('categoria'));
     }
 
-    public function update(UpdateCurso $request, Curso $curso){
+    public function update(UpdateCurso $request, Curso $curso)
+    {
 
         // $curso->name = $request->name;
         // $curso->description = $request->description;
@@ -54,5 +60,11 @@ class CursoController extends Controller
 
         return redirect()->route('cursos.show', $curso->id);
     }
-    
+
+    public function destroy(Curso $curso)
+    {
+        $curso->delete();
+
+        return redirect()->route('cursos.index');
+    }
 }
