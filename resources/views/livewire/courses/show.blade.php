@@ -15,7 +15,6 @@
     <p><strong>Categoria: </strong>{{ $curso->category }}</p>
     <p><strong>Descripción: </strong>{{ $curso->description }}</p>
     <form wire:submit="destroy">
-        @csrf
         <button type="submit">Eliminar curso</button>
     </form>
 </div>
