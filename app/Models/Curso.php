@@ -10,5 +10,5 @@ class Curso extends Model
     use HasFactory;
 
     // protected $fillable = ['name', 'description', 'category'];
-    protected $guarded = ['status'];
+    protected $guarded = [];
 }

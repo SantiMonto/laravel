@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<div>
     <h1>Bienvenido a la página cursos</h1>
     <a href={{route('courses.create')}}>Crear curso</a>
     <br/>
@@ -19,5 +12,4 @@
         @endforeach
     </ul>
     {{$cursos->links()}}
-</body>
-</html>
+</div>

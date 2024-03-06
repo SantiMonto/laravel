@@ -3,6 +3,11 @@
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Counter\Index as Counter;
+use App\Livewire\Courses\Create;
+use App\Livewire\Courses\Edit;
+use App\Livewire\Courses\Index;
+use App\Livewire\Courses\Show;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +21,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', HomeController::class)->name('home');
+Route::get('/counter', Counter::class)->name('counter');
+Route::get('/cursos',Index::class)->name('courses.index');
+Route::get('/cursos/create',Create::class)->name('courses.create');
+Route::get('/cursos/{curso}/edit',Edit::class)->name('courses.edit');
+Route::get('/cursos/{curso}/{categoría?}',Show::class)->name('courses.show');
+
 
 // Route::controller(CursoController::class)->group(function () {
 //     Route::get('cursos', 'index')->name('cursos.index');
@@ -27,4 +38,4 @@ Route::get('/', HomeController::class)->name('home');
 //     Route::delete('cursos/{curso}', 'destroy')->name('cursos.destroy');
 // });
 
-Route::resource('cursos', CursoController::class);
+// Route::resource('cursos', CursoController::class);
